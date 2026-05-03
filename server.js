@@ -6,7 +6,10 @@ require('dotenv').config();
 
 const app = express();
 app.use(helmet());
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin: 'https://canteiroverde.netlify.app' // Substitua pelo seu link do Netlify
+}));
 app.use(express.json());
 
 app.get('/', (req, res) => res.json({ message: 'API do Canteiro funcionando.' }));
